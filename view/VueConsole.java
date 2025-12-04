@@ -1,14 +1,21 @@
 package view;
 
-import model.*;
+import model.Joueur;
+import model.Plateau;
 import java.util.Scanner;
 
 public class VueConsole {
 
     private Scanner scanner;
+    private VueMain vueMain;
+    private VuePlateau vuePlateau;
+    private VueMenu vueMenu;
 
     public VueConsole() {
         scanner = new Scanner(System.in);
+        vueMain = new VueMain();
+        vuePlateau = new VuePlateau();
+        vueMenu = new VueMenu();
     }
 
     public void afficherMessage(String msg) {
@@ -16,35 +23,19 @@ public class VueConsole {
     }
 
     public void afficherMain(Joueur joueur) {
-        System.out.println("Main de " + joueur.getNom() + ":");
-        for (int i = 0; i < joueur.getMain().size(); i++) {
-            Carte c = joueur.getMain().get(i);
-            System.out.println("[" + i + "] " + c.afficherCarte());
-        }
+        vueMain.afficherMain(joueur);
+    }
+
+    public void afficherPlateau(Plateau plateau) {
+        vuePlateau.afficherPlateau(plateau);
+    }
+
+    public void afficherMenuPrincipal() {
+        vueMenu.afficherMenuPrincipal();
     }
 
     public int demanderChoix(String message) {
         System.out.println(message);
         return scanner.nextInt();
-    }
-
-    public void afficherPlateau(Plateau plateau) {
-        System.out.println("===== PLATEAU =====");
-
-        for (Borne b : plateau.getBornes()) {
-            System.out.println("Borne " + b.getId());
-
-            System.out.print("A: ");
-            for (Carte c : b.getCartesJ1()) {
-                System.out.print(c.afficherCarte() + " ");
-            }
-            System.out.println();
-
-            System.out.print("B: ");
-            for (Carte c : b.getCartesJ2()) {
-                System.out.print(c.afficherCarte() + " ");
-            }
-            System.out.println();
-        }
     }
 }
