@@ -9,7 +9,7 @@ public class VueMain {
         System.out.println("Main de " + joueur.getNom() + ":");
         for (int i = 0; i < joueur.getMain().size(); i++) {
             Carte c = joueur.getMain().get(i);
-            System.out.println("[" + i + "] " + c.afficherCarte());
+            System.out.println("indice carte : " + i + ", carte :" + c.afficherCarte());
         }
     }
 }
