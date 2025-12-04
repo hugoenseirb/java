@@ -2,7 +2,6 @@ package model;
 
 public class EditionTactique extends Edition {
 
-    // Tu peux ajuster ces valeurs si votre variante tactique diffère
     private static final int NB_BORNES_TACTIQUE = 9;
     private static final int NB_CARTES_MAIN_TACTIQUE = 6;
     private static final int TAILLE_MAX_PAR_BORNE_TACTIQUE = 3;

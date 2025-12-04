@@ -13,6 +13,15 @@ public class Borne {
         this.revendiquee = false;
     }
 
+    private int id;
+
+    public Borne(int id) {
+        this.id = id;
+        this.cartesJ1 = new ArrayList<>();
+        this.cartesJ2 = new ArrayList<>();
+        this.revendiquee = false;
+    }
+
     public void ajouterCarteJ1(Carte c){
         if (cartesJ1.size() < 3) {
             cartesJ1.add(c);

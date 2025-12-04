@@ -2,9 +2,9 @@ package model;
  
 public class Carte {
     private int valeur;
-    private String couleur;
+    private Couleur couleur;
 
-    public Carte(int valeur, String couleur){
+    public Carte(int valeur, Couleur couleur) {
         this.valeur = valeur;
         this.couleur = couleur;
     }
@@ -13,11 +13,11 @@ public class Carte {
         return valeur;
     }
 
-    public String getCouleur() {
+    public Couleur getCouleur() {
         return couleur;
     }
 
     public String afficherCarte() {
-        return valeur + couleur;
+        return valeur + " " +couleur;
     }
 }

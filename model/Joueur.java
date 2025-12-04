@@ -19,7 +19,9 @@ public class Joueur {
     }
 
     public void AjouterCarte(Carte c){
-        main.add(c);
+        if (c != null) {
+            main.add(c);
+        }
     }
 
     public Carte jouerCarte(int indice) {

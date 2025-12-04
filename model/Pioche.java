@@ -4,23 +4,39 @@ import java.util.Collections;
 import java.util.List;
 
 public class Pioche {
+
     private List<Carte> cartes;
-    public Pioche(List<Carte> cartesInitiales) {
-        this.cartes = new ArrayList<>(cartesInitiales);
+
+    public Pioche() {
+        cartes = new ArrayList<>();
+        initialiserCartes();
         melanger();
     }
-    public void melanger(){
+
+    private void initialiserCartes() {
+        for (Couleur couleur : Couleur.values()) {
+            for (int valeur = 1; valeur <= 9; valeur++) {
+                cartes.add(new Carte(valeur, couleur));
+            }
+        }
+    }
+
+    public void melanger() {
         Collections.shuffle(cartes);
     }
+
     public Carte piocher() {
-        if (cartes.isEmpty()) return null;
+        if (cartes.isEmpty()) {
+            return null;
+        }
         return cartes.remove(0);
     }
-    public int taille() {
-        return cartes.size();
-    }
+
     public boolean estVide() {
         return cartes.isEmpty();
     }
+
+    public int taille() {
+        return cartes.size();
+    }
 }
- 
