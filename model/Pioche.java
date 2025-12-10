@@ -7,6 +7,12 @@ public class Pioche {
 
     private List<Carte> cartes;
 
+    public Pioche(List<Carte> cartes) {
+        this.cartes = new ArrayList<>(cartes);
+        melanger();
+    }
+
+
     public Pioche() {
         cartes = new ArrayList<>();
         initialiserCartes();

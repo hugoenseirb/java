@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EditionTactique extends Edition {
 
     private static final int NB_BORNES_TACTIQUE = 9;
@@ -14,4 +17,17 @@ public class EditionTactique extends Edition {
               TAILLE_MAX_PAR_BORNE_TACTIQUE,
               CARTES_TACTIQUES_TACTIQUE);
     }
+
+    @Override
+    public Pioche creerPioche() {
+        List<Carte> cartes = new ArrayList<>();
+
+        for (Couleur couleur : Couleur.values()) {
+            for (int valeur = 1; valeur <= 9; valeur++) {
+                cartes.add(new Carte(valeur, couleur));
+            }
+        }
+        return new Pioche(cartes);
+    }
+
 }

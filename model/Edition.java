@@ -1,3 +1,4 @@
+
 package model;
 
 public abstract class Edition {
@@ -8,8 +9,7 @@ public abstract class Edition {
     private final int tailleMaxParBorne;
     private final boolean cartesTactiques;
 
-    protected Edition(String nom, int nbBornes, int nbCartesEnMain,
-                      int tailleMaxParBorne, boolean cartesTactiques) {
+    protected Edition(String nom, int nbBornes, int nbCartesEnMain, int tailleMaxParBorne, boolean cartesTactiques) {
         this.nom = nom;
         this.nbBornes = nbBornes;
         this.nbCartesEnMain = nbCartesEnMain;
@@ -39,5 +39,14 @@ public abstract class Edition {
 
     public String toString() {
         return nom;
+    }
+
+    public abstract Pioche creerPioche();
+
+    public boolean peutJouerCarteTactique(Joueur jActif, Joueur jAdverse) {
+        return false; 
+    }
+
+    public void appliquerEffet(Carte carteTactique, Borne borne, Joueur jActif, Plateau plateau) {
     }
 }
